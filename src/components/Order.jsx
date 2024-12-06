@@ -17,7 +17,7 @@ const SingleProductOrder = () => {
     const fetchProduct = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4000/api/product/${productId}`
+          `https://07bc-203-99-174-147.ngrok-free.app/api/product/${productId}`
         );
         setProduct(data);
         setLoading(false); // Stop loading

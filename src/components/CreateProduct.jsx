@@ -43,7 +43,7 @@ const token=localStorage.getItem("token")
     formDataToSend.append("image", formData.image);
 
     try {
-      const response = await axios.post("http://localhost:4000/api/product/create", formDataToSend, {
+      const response = await axios.post("https://07bc-203-99-174-147.ngrok-free.app/api/product/create", formDataToSend, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`
