@@ -6,11 +6,15 @@ const ListProducts = () => {
   const [products,ListProducts]=useState([]);
   const [loading,setLoading]=useState(true);
   const [error, setError] = useState("");
-  const url="https://07bc-203-99-174-147.ngrok-free.app/"
+  const url="https://07bc-203-99-174-147.ngrok-free.app"
 
   const fetchingProducts=async()=>{
     try {
-      const response=await axios.get("http://localhost:4000/api/product/list")
+      const response=await axios.get("http://localhost:4000/api/product/list",{
+        headers: {
+          'ngrok-skip-browser-warning': 'true'
+        }
+      })
     
     ListProducts(response.data.products)
     setLoading(false)

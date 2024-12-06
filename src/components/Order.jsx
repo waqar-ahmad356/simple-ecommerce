@@ -17,7 +17,11 @@ const SingleProductOrder = () => {
     const fetchProduct = async () => {
       try {
         const { data } = await axios.get(
-          `https://07bc-203-99-174-147.ngrok-free.app/api/product/${productId}`
+          `https://07bc-203-99-174-147.ngrok-free.app/api/product/${productId}`,{
+            headers: {
+              'ngrok-skip-browser-warning': 'true'
+            }
+          }
         );
         setProduct(data);
         setLoading(false); // Stop loading

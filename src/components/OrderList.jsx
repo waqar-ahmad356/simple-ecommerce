@@ -13,6 +13,9 @@ const OrdersList = () => {
       const { data } = await axios.get("https://07bc-203-99-174-147.ngrok-free.app/api/order/get", {
         headers: {
           Authorization: `Bearer ${token}`, // Pass token for authentication
+
+              'ngrok-skip-browser-warning': 'true'
+           
         },
       });
 

@@ -9,7 +9,11 @@ const Products = () => {
   const url="https://07bc-203-99-174-147.ngrok-free.app"
   const fetchingProducts=async()=>{
     try {
-      const response=await axios.get("https://07bc-203-99-174-147.ngrok-free.app/api/product/list")
+      const response=await axios.get("https://07bc-203-99-174-147.ngrok-free.app/api/product/list",{
+        headers: {
+          'ngrok-skip-browser-warning': 'true'
+        }
+      })
     
       setProducts(response.data.products)
       setLoading(false)
@@ -46,7 +50,7 @@ const Products = () => {
     <div className='d-flex flex-row gap-10 pt-10'>
     <h2 className='text-center underline text-[72px] text-[#0b0a2e]'>Products</h2>
     <div className='grid grid-cols-3 gap-4 px-[80px]'>
-      {products?.map((prod,index)=>{
+      {products.map((prod,index)=>{
        return (
         <>
         <div className='py-8 px-8 bg-[#fff] shadow-md  rounded-lg flex flex-col gap-3 items-start'>
