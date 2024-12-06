@@ -33,7 +33,11 @@ const Login = () => {
         ? { email: formData.email, password: formData.password } // Login payload
         : formData; // Sign Up payload
 
-      const { data } = await axios.post(url, payload);
+      const { data } = await axios.post(url, payload, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true'
+        }
+      });
 
       // Set success message from backend
       setMessage(data.message || (isLogin ? "Login Successful" : "Sign Up Successful"));
