@@ -14,7 +14,7 @@ const ListProducts = () => {
     
     ListProducts(response.data.products)
     setLoading(false)
-    console.log(response.data)
+    console.log(response?.data)
       
     } catch (err) {
       setError(err.response?.data?.message || "Failed to fetch Products.");
@@ -52,7 +52,7 @@ const ListProducts = () => {
         <h2 className='font-bold'>Name</h2>
         <h2 className='font-bold'>Description</h2>
         <h2 className='font-bold'>Price</h2>
-        {products.map((prod)=>{
+        {products?.map((prod)=>{
           return(
             <>
             <img src={url+"/images/"+prod.image} className='w-[100px] h-[100px]' alt='img'/>
