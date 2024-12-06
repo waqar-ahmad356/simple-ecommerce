@@ -6,10 +6,10 @@ const Products = () => {
   const [products,setProducts]=useState([]);
   const [error,setError]=useState("");
   const [loading,setLoading]=useState(true)
-  const url="http://localhost:4000"
+  const url="https://07bc-203-99-174-147.ngrok-free.app"
   const fetchingProducts=async()=>{
     try {
-      const response=await axios.get("http://localhost:4000/api/product/list")
+      const response=await axios.get("https://07bc-203-99-174-147.ngrok-free.app/api/product/list")
     
       setProducts(response.data.products)
       setLoading(false)

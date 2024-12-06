@@ -63,7 +63,7 @@ const SingleProductOrder = () => {
       const totalAmount = product.product.price;
   
       const { data } = await axios.post(
-        "http://localhost:4000/api/order/create", // Order creation API
+        "https://07bc-203-99-174-147.ngrok-free.app/api/order/create", // Order creation API
         {
           
           items: [product.product._id,product.product.name], // Array of items in the order

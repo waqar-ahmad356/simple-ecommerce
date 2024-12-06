@@ -6,7 +6,7 @@ const ListProducts = () => {
   const [products,ListProducts]=useState([]);
   const [loading,setLoading]=useState(true);
   const [error, setError] = useState("");
-  const url="http://localhost:4000"
+  const url="https://07bc-203-99-174-147.ngrok-free.app/"
 
   const fetchingProducts=async()=>{
     try {

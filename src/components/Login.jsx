@@ -26,8 +26,8 @@ const Login = () => {
     e.preventDefault();
     try {
       const url = isLogin
-        ? "http://localhost:4000/api/user/login" // Login API
-        : "http://localhost:4000/api/user/signup"; // Sign Up API
+        ? "https://07bc-203-99-174-147.ngrok-free.app/api/user/login" // Login API
+        : "https://07bc-203-99-174-147.ngrok-free.app/api/user/signup"; // Sign Up API
 
       const payload = isLogin
         ? { email: formData.email, password: formData.password } // Login payload
