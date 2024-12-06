@@ -10,7 +10,7 @@ const ListProducts = () => {
 
   const fetchingProducts=async()=>{
     try {
-      const response=await axios.get("https://07bc-203-99-174-147.ngrok-free.app/api/product/list")
+      const response=await axios.get("http://localhost:4000/api/product/list")
     
     ListProducts(response.data.products)
     setLoading(false)
