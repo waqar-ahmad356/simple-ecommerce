@@ -10,7 +10,7 @@ const OrdersList = () => {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("token"); // Get the admin token from localStorage
-      const { data } = await axios.get("https://07bc-203-99-174-147.ngrok-free.app/api/order/get", {
+      const { data } = await axios.get("https://fc1c-119-73-112-37.ngrok-free.app/api/order/get", {
         headers: {
           Authorization: `Bearer ${token}`, // Pass token for authentication
 

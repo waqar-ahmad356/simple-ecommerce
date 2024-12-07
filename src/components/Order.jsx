@@ -10,14 +10,14 @@ const SingleProductOrder = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const url="http://localhost:4000"
+  const url="https://fc1c-119-73-112-37.ngrok-free.app"
 
   // Fetch product details
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const { data } = await axios.get(
-          `https://07bc-203-99-174-147.ngrok-free.app/api/product/${productId}`,{
+          `https://fc1c-119-73-112-37.ngrok-free.app/api/product/${productId}`,{
             headers: {
               'ngrok-skip-browser-warning': 'true'
             }
