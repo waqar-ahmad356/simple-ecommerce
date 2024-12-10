@@ -11,12 +11,16 @@ import ListProducts from './components/ListProducts'
 import Order from './components/Order'
 import Orders from './components/orders'
 import OrderList from './components/OrderList'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <>
     <Navbar/> 
+    <ToastContainer/>
     <Routes>
+    
     <Route path='/' element={<Home/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/products' element={<ProtectedRoute requiredRole="buyer"><Products/></ProtectedRoute>}/>

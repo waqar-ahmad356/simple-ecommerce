@@ -60,7 +60,7 @@ const Login = () => {
         username: "",
         email: "",
         password: "",
-        role: "",
+        role: "buyer",
       });
 
     } catch (error) {
@@ -132,7 +132,7 @@ const Login = () => {
             />
           </div>
 
-          {!isLogin && (
+          {/* {!isLogin && (
             <div className="mb-6">
               <label htmlFor="role" className="block text-gray-700 font-medium">
                 Select Role
@@ -151,7 +151,7 @@ const Login = () => {
                 <option value="buyer">Buyer</option>
               </select>
             </div>
-          )}
+          )} */}
 
           <button
             type="submit"
