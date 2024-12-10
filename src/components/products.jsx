@@ -49,8 +49,8 @@ const {apiUrl}=useContext(ContextApi)
 
   return (
     <div className='d-flex flex-row gap-10 pt-10'>
-    <h2 className='text-center underline text-[72px] text-[#0b0a2e]'>Products</h2>
-    <div className='grid grid-cols-3 gap-4 px-[80px]'>
+    <h2 className='text-center underline text-[34px] sm:text-[44px] md:text-[72px] text-[#0b0a2e]'>Products</h2>
+    <div className='grid grid-cols-1 md:grid-cols-3 gap-4 px-[16px] sm:px-[40px] md:px-[60px] lg:px-[80px]'>
       {products.map((prod,index)=>{
        return (
         <>

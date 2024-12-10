@@ -69,8 +69,8 @@ const ListProducts = () => {
     );
   }
   return (
-    <div className='px-[80px] flex flex-col gap-9'>
-      <h2 className='text-center underline text-[72px] font-bold'>List of Products</h2>
+    <div className='px-[16px] sm:px-[40px] md:px-[60] lg:px-[80px] flex flex-col gap-9'>
+      <h2 className='text-center underline text-[34px] sm:text-[44px] md:text-[72px] font-bold'>List of Products</h2>
       <div className='grid grid-cols-5 gap-6 '>
         <h2 className='font-bold'>Image</h2>
         <h2 className='font-bold'>Name</h2>

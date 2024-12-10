@@ -36,10 +36,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="px-[80px] py-[16px] bg-white">
-      <div className="flex items-center justify-between">
-        <img src={logo} alt="logo" />
-        <span className="font-bold text-[32px] text-[#e76734] uppercase">{role}</span>
+    <div className="px-[16px] sm:px-[40px] md:px-[60] lg:px-[80px] py-[16px] bg-white">
+      <div className="flex items-center justify-between flex-wrap">
+        <img src={logo} className="max-w-full h-auto" alt="logo" />
+        <span className="font-bold sm:text-[32px] text-[12px] text-[#e76734] uppercase">{role}</span>
 
         <ul className="flex items-center list-none gap-4">
           {!isLoggedIn ? (
@@ -52,7 +52,7 @@ const Navbar = () => {
               {userRole === "buyer" && (
                
                 <li>
-                  <Link to="/products" className="font-semibold text-[18px] text-[#c4582d]">Products</Link>
+                  <Link to="/products" className="font-semibold sm:text-[18px] text-[12px] text-[#c4582d]">Products</Link>
                   
                 </li>
                 
@@ -61,13 +61,13 @@ const Navbar = () => {
                 <>
                   
                   <li>
-                    <Link to="/create-product" className="font-semibold text-[18px] text-[#c4582d]">Create Product</Link>
+                    <Link to="/create-product" className="font-semibold sm:text-[18px] text-[12px]  text-[#c4582d]">Create Product</Link>
                   </li>
                   <li>
-                    <Link to="/list-products" className="font-semibold text-[18px] text-[#c4582d]">List of Products</Link>
+                    <Link to="/list-products" className="font-semibold sm:text-[18px] text-[12px] text-[#c4582d]">List of Products</Link>
                   </li>
                   <li>
-                    <Link to="/order-list" className="font-semibold text-[18px] text-[#c4582d]">Orders</Link>
+                    <Link to="/order-list" className="font-semibold sm:text-[18px] text-[12px] text-[#c4582d]">Orders</Link>
                   </li>
                 </>
               )}

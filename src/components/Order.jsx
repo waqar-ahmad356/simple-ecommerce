@@ -92,7 +92,7 @@ const SingleProductOrder = () => {
   
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className=" w-full max-w-md">
+      <div className=" w-full max-w-[300px] md:max-w-md">
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         {message && <p className="text-green-500 text-center mb-4">{message}</p>}
 
