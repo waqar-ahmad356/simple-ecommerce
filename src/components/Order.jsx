@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ContextApi } from "../Context_API/Context";
 
 const SingleProductOrder = () => {
   const { productId } = useParams(); // Get product ID from route params
@@ -10,14 +11,14 @@ const SingleProductOrder = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const url="https://fc1c-119-73-112-37.ngrok-free.app"
+  const {apiUrl}=useContext(ContextApi)
 
   // Fetch product details
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const { data } = await axios.get(
-          `https://fc1c-119-73-112-37.ngrok-free.app/api/product/${productId}`,{
+          `${apiUrl}/api/product/${productId}`,{
             headers: {
               'ngrok-skip-browser-warning': 'true'
             }
@@ -67,7 +68,7 @@ const SingleProductOrder = () => {
       const totalAmount = product.product.price;
   
       const { data } = await axios.post(
-        "https://fc1c-119-73-112-37.ngrok-free.app/api/order/create", // Order creation API
+        `${apiUrl}/api/order/create`, // Order creation API
         {
           
           items: [product.product._id,product.product.name], // Array of items in the order
@@ -105,7 +106,7 @@ const SingleProductOrder = () => {
                 ${product.product.price}
               </p>
               <img
-                src={url+"/images/"+product.product.image}
+                src={apiUrl+"/images/"+product.product.image}
                 alt={product.product.name}
                 className="w-full h-48 object-cover rounded mb-4"
               />

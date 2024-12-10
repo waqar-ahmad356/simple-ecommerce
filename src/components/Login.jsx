@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from 'axios';
 import {jwtDecode} from 'jwt-decode'
 import {useNavigate} from 'react-router-dom'
+import { ContextApi } from "../Context_API/Context";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true); 
@@ -13,6 +14,7 @@ const Login = () => {
     role: "",
   });
   const navigate = useNavigate();
+  const {apiUrl}=useContext(ContextApi)
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
@@ -26,8 +28,8 @@ const Login = () => {
     e.preventDefault();
     try {
       const url = isLogin
-        ? "https://fc1c-119-73-112-37.ngrok-free.app/api/user/login" // Login API
-        : "https://fc1c-119-73-112-37.ngrok-free.app/api/user/signup"; // Sign Up API
+        ? `${apiUrl}/api/user/login` // Login API
+        : `${apiUrl}/api/user/signup`; // Sign Up API
 
       const payload = isLogin
         ? { email: formData.email, password: formData.password } // Login payload

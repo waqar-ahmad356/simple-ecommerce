@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useContext} from "react";
+import { ContextApi } from "../Context_API/Context";
 import axios from "axios";
 
 const OrdersList = () => {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-
+  const {apiUrl}=useContext(ContextApi)
   // Fetch orders data
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("token"); // Get the admin token from localStorage
-      const { data } = await axios.get("https://fc1c-119-73-112-37.ngrok-free.app/api/order/get", {
+      const { data } = await axios.get(`${apiUrl}/api/order/get`, {
         headers: {
           Authorization: `Bearer ${token}`, // Pass token for authentication
 

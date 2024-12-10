@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import axios from 'axios';
 import { useState,useEffect } from 'react';
+import { ContextApi } from '../Context_API/Context';
 
 const ListProducts = () => {
   const [products,ListProducts]=useState([]);
   const [loading,setLoading]=useState(true);
   const [error, setError] = useState("");
-  const url="https://fc1c-119-73-112-37.ngrok-free.app"
+  const {apiUrl}=useContext(ContextApi)
 
   const fetchingProducts=async()=>{
     try {
-      const response=await axios.get("https://fc1c-119-73-112-37.ngrok-free.app/api/product/list",{
+      const response=await axios.get(`${apiUrl}/api/product/list`,{
         headers: {
           'ngrok-skip-browser-warning': 'true'
         }
@@ -59,7 +60,7 @@ const ListProducts = () => {
         {products?.map((prod)=>{
           return(
             <>
-            <img src={url+"/images/"+prod.image} className='w-[100px] h-[100px]' alt='img'/>
+            <img src={apiUrl+"/images/"+prod.image} className='w-[100px] h-[100px]' alt='img'/>
             <h2>{prod.name}</h2>
             <h2>{prod.description}</h2>
             <h2>{prod.price}</h2>

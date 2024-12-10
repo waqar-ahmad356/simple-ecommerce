@@ -1,6 +1,7 @@
-import React, { useState,useRef, useEffect } from "react";
+import React, { useState,useRef, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ContextApi } from "../Context_API/Context";
 
 const CreateProduct = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const CreateProduct = () => {
   const [preview, setPreview] = useState(null);
   const [message, setMessage] = useState("");
   const fileInputRef=useRef(null)
+  const {apiUrl}=useContext(ContextApi)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,7 +45,7 @@ const token=localStorage.getItem("token")
     formDataToSend.append("image", formData.image);
 
     try {
-      const response = await axios.post("https://fc1c-119-73-112-37.ngrok-free.app/api/product/create", formDataToSend, {
+      const response = await axios.post(`${apiUrl}/api/product/create`, formDataToSend, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`
