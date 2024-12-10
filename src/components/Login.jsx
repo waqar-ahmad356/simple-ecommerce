@@ -3,6 +3,7 @@ import axios from 'axios';
 import {jwtDecode} from 'jwt-decode'
 import {useNavigate} from 'react-router-dom'
 import { ContextApi } from "../Context_API/Context";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true); 
@@ -42,7 +43,7 @@ const Login = () => {
       });
 
       // Set success message from backend
-      setMessage(data.message || (isLogin ? "Login Successful" : "Sign Up Successful"));
+      toast.success(data.message || (isLogin ? "Login Successful" : "Sign Up Successful"));
      
       
       if (isLogin && data.token) {
@@ -65,7 +66,7 @@ const Login = () => {
 
     } catch (error) {
       // Set error message from backend
-      setMessage(error.response?.data?.message || "Something went wrong. Please try again.");
+      toast.error(error.response?.data?.message || "Something went wrong. Please try again.");
     }
   };
   
@@ -78,11 +79,11 @@ const Login = () => {
         </h2>
         
         {/* Display success or error message */}
-        {message && (
+        {/* {message && (
           <div className={`mb-4 text-center ${message.includes("Successful") ? "text-green-500" : "text-red-500"}`}>
             {message}
           </div>
-        )}
+        )} */}
 
         <form onSubmit={handleSubmit}>
           {!isLogin && (
