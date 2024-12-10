@@ -1,6 +1,6 @@
 import React, { useState,useRef, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import {toast} from 'react-toastify'
 import { ContextApi } from "../Context_API/Context";
 
 const CreateProduct = () => {
@@ -11,7 +11,7 @@ const CreateProduct = () => {
     image: null,
   });
   const [preview, setPreview] = useState(null);
-  const [message, setMessage] = useState("");
+  
   const fileInputRef=useRef(null)
   const {apiUrl}=useContext(ContextApi)
 
@@ -61,9 +61,9 @@ const token=localStorage.getItem("token")
       if (fileInputRef.current) {
         fileInputRef.current.value = null;
       }
-      setMessage(response.data.message || "Product created successfully!");
+      toast.success(response.data.message || "Product created successfully!");
     } catch (error) {
-      setMessage(error.response?.data?.message || "Something went wrong.");
+      toast.error(error.response?.data?.message || "Something went wrong.");
     }
   };
 
@@ -152,11 +152,11 @@ const token=localStorage.getItem("token")
             Submit
           </button>
         </form>
-        {message && (
+        {/* {message && (
           <div className="mt-4">
             <p className="text-center text-green-500">{message}</p>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
